@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    box-sizing: inherit;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+}
+
+.chat-container {
+    width: 60%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 3%; /* Adjust this value as needed */
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.chat-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.upload-files {
+    width: 35%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 1%; /* Adjust this value as needed */
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.drop-container {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    margin-left: 1%; /* Adjust this value as needed */
+    margin-top: 2%;
+    margin-right: 1%;
+}
+
+.drop-container:hover {
+  background: #eee;
+  border-color: #111;
+}
+
+.drop-container:hover .drop-title {
+  color: #222;
+}
+
+.process-file {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 8%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.upload-files button {
+    height: 10%;
+    width: 100%;
+    border-radius: 40px;
+    border: none;
+    margin-top: 3px;
+}
+
+.upload-files button:hover {
+    background-color: #0d45a5;
+}
+
+.drop-title {
+  color: #444;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
+
+input[type=file] {
+  width: 350px;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #555;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-top: 2%;
+}
+
+.chat-input input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chat-input button {
+    background-color: #084cdf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #0d45a5;
+}
+
+.chat-messages {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    margin-top: 3.5%;
+    background-color: #f0f0f4;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.message.user-message {
+    margin-top = 3%;
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    background-color: #EAEAEA;
+    color: #000;
+}
+
+.message.server-response {
+    margin-top = 3%;
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    color: #000;
+}

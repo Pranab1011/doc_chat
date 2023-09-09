@@ -1,0 +1,2 @@
+data_desc_prompt_template: "I have a dataframe related to {data_subject}. The column names are {schema}.Give a description of the columns. Provide it in a dictionary format as key:value pairs. Both key and value are strings"
+model_name: "text-davinci-003"
