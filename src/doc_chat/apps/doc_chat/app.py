@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import io
 import base64
-from ts_desk.llm_chain.doc_chain import NormalChain
+from doc_chat.llm_chain.doc_chain import NormalChain
 from langchain.document_loaders import TextLoader
 from langchain.docstore.document import Document
 import os
