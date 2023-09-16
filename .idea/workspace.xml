@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a9315905-c522-4f05-9d96-7228da4af66d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/doc_chat/chat_bot/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/doc_chat/llm_chain/vectordb_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/apps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/chroma_db/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/apps/chat_bot/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/chroma_db/chroma_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/apps/chat_bot/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc_chat/chat_bot/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/apps/chat_bot/static/SVGs/send1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc_chat/chat_bot/static/SVGs/send1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/apps/chat_bot/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc_chat/chat_bot/static/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/apps/chat_bot/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc_chat/chat_bot/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/apps/chat_bot/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc_chat/chat_bot/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/configs/llm_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc_chat/configs/llm_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc_chat/llm_chain/doc_chain.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc_chat/llm_chain/doc_chain.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2V8mwT6DzZQEc0MLw4XFtYqd9JH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/pranabpathak/PycharmProjects/doc_chat&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/doc_chat" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9315905-c522-4f05-9d96-7228da4af66d" name="Changes" comment="" />
+      <created>1694226319724</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694226319724</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
