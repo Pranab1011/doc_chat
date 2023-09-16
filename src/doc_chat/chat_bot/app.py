@@ -1,16 +1,17 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session
 from doc_chat.llm_chain.doc_chain import ChromaChain
 import os
 
 app = Flask(__name__)
-dataFolder = "uploaded_data"
-
-global chain_instance
-chain_instance = None
+app.config['PERMANENT_SESSION_LIFETIME'] = 1800
 
 
 @app.route('/')
 def index():
+    if 'session_id' not in session:
+        # Generate a session-specific ID and store it in the session
+        session['session_id'] = session.sid
+        print("session id: ", session['session_id'])
     return render_template('index.html')
 
 
@@ -18,9 +19,10 @@ def index():
 def receive_message():
     message = request.form.get('message')
     if message:
-        if not chain_instance:
+        if not session["chain_instance"]:
             return jsonify({"reply": "Hi there! Please upload a valid file before proceeding"})
         else:
+            chain_instance = session["chain_instance"]
             reply = chain_instance.doc_chain(message)
             return jsonify({"reply": reply})
     return jsonify({"reply": "No message received"})
@@ -38,10 +40,10 @@ def upload_file():
             metadata = {"source": uploaded_file.filename}
             documents = text
 
-            global chain_instance
-            chain_instance = ChromaChain(documents)
+            chain_instance = ChromaChain(documents, session['session_id'])
             chain_instance.start_vector_instance()
             chain_instance.start_conversation_instance()
+            session["chain_instance"] = chain_instance
 
             follow_up_message = f"I have understood the document. \n Please shoot your questions."
             return jsonify({"status": "File uploaded successfully", "follow_up_message": follow_up_message})
