@@ -7,9 +7,17 @@ from langchain.memory import ConversationBufferMemory
 from langchain.docstore.document import Document
 from doc_chat.llm_chain.vectordb_client import ChromaVectors
 import yaml
+from doc_chat.configs.utils import l
 
-with open('../configs/llm_config.yml', 'r') as file:
-    configs = yaml.safe_load(file)
+
+# utils = LLMConfig()
+configs = l.configs
+
+# print(configs)
+
+# config_path_relative = "../configs/llm_config.yaml"
+# with open(config_path_relative, 'r') as file:
+#     configs = yaml.safe_load(file)
 
 
 class VectaraChain:

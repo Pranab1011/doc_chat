@@ -1,4 +1,0 @@
-langchain
-pyyaml
-chromadb
-openai

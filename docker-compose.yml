@@ -6,10 +6,14 @@ services:
       dockerfile: ./Dockerfile
     image: application
     container_name: application
+    ports:
+      - 8080:5000
     volumes:
-      - ./:/app/
+      - appdata:/app/doc_chat/data
     networks:
       - net
+    env_file:
+      - .env
 
   chroma:
     image: ghcr.io/chroma-core/chroma:latest
@@ -24,6 +28,8 @@ volumes:
   index_data:
     driver: local
   backups:
+    driver: local
+  appdata:
     driver: local
 
 networks:

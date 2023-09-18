@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request, jsonify, session
 from doc_chat.llm_chain.doc_chain import ChromaChain
+from flask_session import Session
 import os
 
 app = Flask(__name__)
-app.config['PERMANENT_SESSION_LIFETIME'] = 1800
+# app.config['PERMANENT_SESSION_LIFETIME'] = 1800
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = '/app/doc_chat/data/session_data'  # Use an appropriate subdirectory
+app.config['SESSION_PERMANENT'] = False  # Session will expire when the browser is closed
+
+Session(app)
 
 
 @app.route('/')
@@ -51,4 +57,4 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)

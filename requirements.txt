@@ -1,0 +1,7 @@
+langchain
+pyyaml
+chromadb
+openai
+flask
+Flask-Session
+sentence-transformers
