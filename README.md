@@ -8,8 +8,6 @@
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
 - [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -18,7 +16,7 @@ The Retriever Augmented Generation Chat Application is a powerful tool that allo
 ![Application Screenshot](/path/to/screenshot.png)
 
 ## Features
-
+##
 - **Chat with Text Documents**: Engage in chat conversations with text documents.
 - **Retrieval and Generation**: Combine retrieval-based and generation-based methods for intelligent responses.
 - **Easy Deployment**: Dockerized for easy deployment to production environments with scaling support.
@@ -46,20 +44,26 @@ To get started with this application, follow these steps:
    ```shell
    git clone https://github.com/your-username/your-repo.git
    cd your-repo
+   cd src
+   export PYTHONPATH=.
+   
+make src your working directory if required
 
 2. Install the necessary dependencies:
 
     ```shell
    pip install -r requirements.txt
 
-3. Configure your API keys and settings. Refer to the Configuration section below.
-4. Start the application locally:
+3. Configure your API keys and settings. Refer to the Configuration section below. You'd need to create access keys in openai. *Currently we only support openai models for the chat bot*
+   ```shell
+   export openai_key=<your openai access key>
+4. Start the application locally (checkout to develop branch for local run):
 
     ```shell
-   ls src
-   python doc_chat/chat_bot/app.py
+   git checkout develop
+   python doc_chat/chat_bot/app_local.py
    
-5. Open your web browser and navigate to http://localhost:5000 to access the application.
+5. Open your web browser and navigate to http://localhost:8000 to access the application.
 
 ## Configuration
 
@@ -69,8 +73,7 @@ Create a .env file in the project root directory if it doesn't already exist.
 
 Add the following environment variables to the .env file:
 
-OPENAI_API_KEY: Your API key for OpenAI's GPT-3 model.
-CHROMA_DB_URL: The URL for your Chroma DB instance.
+openai_key: Your API key for OpenAI's GPT-3 model.
 [Add any other configuration variables as needed.]
 Save the .env file.
 
