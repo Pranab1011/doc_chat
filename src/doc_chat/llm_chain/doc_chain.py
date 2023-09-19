@@ -9,20 +9,12 @@ from doc_chat.llm_chain.vectordb_client import ChromaVectors
 import yaml
 from doc_chat.configs.utils import l
 
-
-# utils = LLMConfig()
 configs = l.configs
-
-# print(configs)
-
-# config_path_relative = "../configs/llm_config.yaml"
-# with open(config_path_relative, 'r') as file:
-#     configs = yaml.safe_load(file)
 
 
 class VectaraChain:
     """
-    For Vectara vectore store.
+    For Vectara vector store.
     """
     def __init__(self, documents):
         self.documents = documents
@@ -52,7 +44,7 @@ class VectaraChain:
 
 class ChromaChain:
     """
-    For Chroma DB vectore store.
+    For Chroma DB vector store.
     """
     def __init__(self, documents, session_id):
         self.documents = documents
@@ -62,7 +54,7 @@ class ChromaChain:
 
     def start_vector_instance(self):
         self.vectorstore = ChromaVectors(self.session_id, self.documents)
-        self.vectorstore.create_client()
+        self.vectorstore.create_client_local()
         self.vectorstore.create_collection()
         self.vectorstore.collection()
 
@@ -74,6 +66,8 @@ class ChromaChain:
         context = self.vectorstore.n_neighbours(question=question, n_results=3)
         template = configs["rag_template_n_3"]
         prompt = f"{template} \n Q={question} \n doc_1={context[0]} \n doc_2={context[1]} \n doc_2={context[2]}"
+        print()
+        print(prompt)
 
         try:
             reply = self.llm(prompt)
