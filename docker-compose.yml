@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     image: application
-    container_name: application
+    container_name: rag_bot
     ports:
       - 8080:5000
     volumes:
@@ -17,8 +17,9 @@ services:
 
   chroma:
     image: ghcr.io/chroma-core/chroma:latest
+    container_name: chroma
     volumes:
-      - index_data:/chroma/.chroma/index
+      - index_data:/chroma/chroma
     ports:
       - 8000:8000
     networks:

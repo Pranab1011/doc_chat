@@ -5,6 +5,7 @@ from langchain.vectorstores import Chroma
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
 import uuid
+from doc_chat.llm_chain.embedding_functions import SentenceTransformerEmbedding
 
 
 class ChromaVectors:
@@ -19,16 +20,14 @@ class ChromaVectors:
                                                  settings=Settings(allow_reset=True, anonymized_telemetry=False))
 
     def create_collection(self):
-        embedding_function = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
         self.document_collection = self.chroma_client.get_or_create_collection(name=self.session_id,
-                                                                          embedding_function=embedding_function)
+                                                                          embedding_function=SentenceTransformerEmbedding())
 
     def chroma_chain(self):
-        embedding_function = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
         self.chat_chain = Chroma(
             client=self.chroma_client,
             collection_name=self.session_id,
-            embedding_function=embedding_function,
+            embedding_function=SentenceTransformerEmbedding(),
         )
 
     def document_chunker(self):
@@ -37,7 +36,7 @@ class ChromaVectors:
         docs = text_splitter.split_documents([Document(page_content=self.document, metadata={'source': 'web'})])
 
         # define metadata
-        ids = [uuid.uuid1() for i in docs]
+        ids = [str(uuid.uuid1()) for i in docs]
         metadatas = [{"source": "user"} for i in docs]
 
         return docs, ids, metadatas
@@ -49,11 +48,12 @@ class ChromaVectors:
 
         # Add documents and embeddings to chromaDB
         self.document_collection.add(documents=documents_to_add, metadatas=metadatas, ids=ids)
+        print(self.document_collection.query(query_texts=["What happened in Manipur"], n_results=1))
 
     def delete_collection(self):
         self.chroma_client.delete_collection(self.session_id)
 
     def n_neighbours(self, question, n_results=3):
-        results = self.document_collection.query(question, n_results=n_results)
-        context_to_use = '; '.join(results["documents"])
+        results = self.document_collection.query(query_texts=question, n_results=n_results)
+        context_to_use = results["documents"][0]
         return context_to_use
