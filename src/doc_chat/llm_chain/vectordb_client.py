@@ -48,7 +48,6 @@ class ChromaVectors:
 
         # Add documents and embeddings to chromaDB
         self.document_collection.add(documents=documents_to_add, metadatas=metadatas, ids=ids)
-        print(self.document_collection.query(query_texts=["What happened in Manipur"], n_results=1))
 
     def delete_collection(self):
         self.chroma_client.delete_collection(self.session_id)
